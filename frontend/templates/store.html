@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<!-- SITE TITTLE -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>BroBro - Store</title>
+	{% load static %}
+
+	<!-- PLUGINS CSS STYLE -->
+	<!-- Bootstrap -->
+	<link href="{% static 'plugins/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+	<!-- Font Awesome -->
+	<link href="{% static 'plugins/font-awsome/css/font-awesome.min.css' %}" rel="stylesheet">
+	<!-- Magnific Popup -->
+	<link href="{% static 'plugins/magnific-popup/magnific-popup.css' %}" rel="stylesheet">
+	<!-- Slick Carousel -->
+	<link href="{% static 'plugins/slick/slick.css' %}" rel="stylesheet">
+	<link href="{% static 'plugins/slick/slick-theme.css' %}" rel="stylesheet">
+	<!-- CUSTOM CSS -->
+	<link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+	<!-- FAVICON -->
+	<link href="{% static 'img/logos/brobro-transparent-icon.png' %}" rel="shortcut icon">
+
+</head>
+
+<body class="body-wrapper">
+	<!--========================================
+	=            Navigation Section            =
+	=========================================-->
+	<nav class="navbar main-nav border-less fixed-top navbar-expand-lg p-0">
+		<div class="container-fluid p-0">
+			<!-- logo -->
+			<a class="navbar-brand" href="/">
+				<img class="icon" src="{% static 'img/logos/brobro-transparent-icon.png' %}" alt="logo" />
+			</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="fa fa-bars"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home<span>/</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about">About<span>/</span></a>
+                    </li>
+                    <li class="nav-item dropdown dropdown-slide">
+                        <a class="nav-link" href="/news">News<span>/</span></a>
+                    </li>
+                    <li class="nav-item dropdown dropdown-slide">
+                        <a class="nav-link" href="/podcast">Podcast<span>/</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/store">Store<span></span></a>
+                    </li>
+                </ul>
+                <a href="/podcast" class="ticket">
+                    <span>Shopping Cart</span>
+                </a>
+			</div>
+		</div>
+	</nav>
+    <h1>Store</h1>
+    <h1>loaded...</h1>
+    <br>
+    <div class="mb-50"></div>
+
+	<section class="banner bg-banner-one-store mt-50">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="block">
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+    <br>
+
+    <section class="store-description-block mt-5 text-center">
+        <div class="row">
+            <div class="col-sm-4 col-lg 4"><img src="{% static 'img/graphics/hillen-store.png' %}" class="" alt="" /> </div>
+            <div class="col-sm-4 col-lg 4"> 
+                <h1><span class="alternate">BroBro Bet$</span> Store</h1>
+                <br>
+                <h6>Support YOUR sports betting analysts by cashing it in while wearing BroBro Swag</h6>
+                <br>
+                <img src="{% static 'img/logos/payment-types.png' %}" alt="payment types" />
+            </div>
+            <div class="col-sm-4 col-lg 4"><img src="{% static 'img/graphics/Dre-store.png' %}" class="" alt="" /> </div>
+        </div>
+    </section>
+
+    <section class="store mt-50">
+        <div class="container">    
+            <div class="container">
+                {% for product in all_products %}
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-6 col-lg-6 text-center">
+                            <img src={{ product.image }} class="img-fluid" alt="" />
+                        </div>
+                        <div class="col-sm-6 col-lg-6">
+                            <div class="row">
+                                <h4 class="col-sm-9 col-lg-9 text-left">{{ product.name }}</h4>
+                                <h6 class='col-sm-3 col-lg-3 text-right'><span class="alternate">{{ product.price }}</span></h6>
+                            </div>
+                            <br>
+                            <div class="container">
+                                {{ product.description }}
+                            </div>
+                            <br>
+                            <ul>
+                                <li>inventory: {{ product.quantity }}</li>
+                                <li>colors: {{ product.colors }}</li>
+                                <li>sizes: {{ product.sizes }}</li>
+                                <li>type: {{ product.types }}</li>
+                                <li>sex: {{ product.sex }}</li>
+                            </ul>
+                            <br>
+                            <div class="text-center">
+                                <button class="btn btn-main"><span>Add to cart</span></button>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+	<!--===========================
+	=            Banner            =
+	============================-->
+	<section class="banner bg-banner-one-about-two">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="block">
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+
+	<!--============================
+	=            Footer            =
+	=============================-->
+
+	<footer class="footer-main">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="row">
+						<div class="block text-center col-sm-6 col-lg-6">
+							<div class="footer-logo">
+								<img src="{% static 'img/graphics/home-banner.png' %}" alt="logo" class="img-fluid" />
+								<a href="/podcast"><img src="{% static 'img/graphics/youtube.png' %}" alt="logo" class="img-fluid" /></a>
+							</div>
+						</div>
+						<div class="block text-center col-sm-6 col-lg-6">
+							<h2><span class="alternate">Follow and Subscribe to our content today!</span></h2>
+							<br>
+							<div class="footer-logo">
+								<ul class="social-links-footer list-inline">
+									<li class="list-inline-item">
+										<a href="https://www.youtube.com/playlist?list=PLeKwiM_Z7VQxYasem9WxyCjrf6ZjmO1k7" target="_blank"><i class="fa fa-youtube"></i></a>
+									</li>
+									<li class="list-inline-item">
+										<a href="https://twitter.com/brobrobets" target="_blank"><i class="fa fa-twitter"></i></a>
+									</li>
+									<li class="list-inline-item">
+										<a href="https://www.instagram.com/brobrobets/"><i class="fa fa-instagram"></i></a>
+									</li>
+								</ul>
+							</div>
+							<br>
+							<div>
+								<i><img class="image-sm-logo" src="{% static 'img/logos/brobro-transparent-icon.png' %}" alt="Logo" /></i>
+							</div>
+							<div class="footer-logo flex">
+								<ul class="list-inline flex">
+									<li class="list-inline-item"><a href="" class=""><h6><span class="alternate">Home</span></h6></a></li>
+									<li class="list-inline-item"><a href="" class=""><h6><span class="alternate">About</span></h6></a></li>
+									<li class="list-inline-item"><a href="" class=""><h6><span class="alternate">News</span></h6></a></li>
+									<li class="list-inline-item"><a href="" class=""><h6><span class="alternate">Podcast</span></h6></a></li>
+									<li class="list-inline-item"><a href="" class=""><h6><span class="alternate">Store</span></h6></a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- Subfooter -->
+	<footer class="subfooter">
+		<div class="container">
+			<div class="copyright-text">
+				<p>© 2020 Brobro.com. All Rights Reserved.</p>
+			</div>
+			<div class="row">
+				<div class="col-md-6 align-self-center">
+					<div class="copyright-text">
+					<p>Site developed by <span><a href="http://www.benwillwalk.com">BenWillWalk Dev</a></span></p>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<a href="#" class="to-top"><i class="fa fa-angle-up"></i></a>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<!-- End Subfooter -->
+	<!-- End Footer -->
+	
+			
+	
+
+
+	<!--===========================================
+	=            Call to Action Ticket            =
+	============================================-->
+
+	{% comment %} <section class="cta-ticket bg-ticket overlay-dark">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8">
+					<!-- Get ticket info -->
+					<div class="content-block">
+                        <div class="container">
+                            <h2><strong>BroBro Bet$ <span class="alternate">Store</span></strong></h2>
+                            <h3><strong><span class="alternate">Look your best, while winning your bets!</span></strong></h3>
+                            <a href="/store" class="btn btn-main-md">Store</a>
+                        </div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="image-block"><img src="{% static 'images/background/timKnoxCard.jpg' %}" alt="" class="img-fluid"></div>
+	</section> {% endcomment %}
+
+	<!--====  End of Call to Action Ticket  ====-->
+
+
+	
+
+	<!--============================
+	=            Footer            =
+	=============================-->
+
+	{% comment %} <footer class="footer-main">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="row">
+						<div class="block text-center col-sm-6 col-lg-6">
+							<div class="footer-logo">
+								<img src="{% static 'img/graphics/home-banner.png' %}" alt="logo" class="img-fluid" />
+								<a href="/podcast"><img src="{% static 'img/graphics/youtube.png' %}" alt="logo" class="img-fluid" /></a>
+							</div>
+						</div>
+						<div class="block text-center col-sm-6 col-lg-6">
+							<h2><span class="alternate">Follow and Subscribe to our content today!</span></h2>
+							<br>
+							<div class="footer-logo">
+								<ul class="social-links-footer list-inline">
+									<li class="list-inline-item">
+										<a href="https://www.youtube.com/playlist?list=PLeKwiM_Z7VQxYasem9WxyCjrf6ZjmO1k7" target="_blank"><i class="fa fa-youtube"></i></a>
+									</li>
+									<li class="list-inline-item">
+										<a href="https://twitter.com/brobrobets" target="_blank"><i class="fa fa-twitter"></i></a>
+									</li>
+									<li class="list-inline-item">
+										<a href="https://www.instagram.com/brobrobets/"><i class="fa fa-instagram"></i></a>
+									</li>
+								</ul>
+							</div>
+							<br>
+							<div>
+								<i><img class="image-sm-logo" src="{% static 'img/logos/brobro-transparent-icon.png' %}" alt="Logo" /></i>
+							</div>
+							<div class="footer-logo flex">
+								<ul class="list-inline flex">
+									<li class="list-inline-item"><a href="" class=""><h6><span class="alternate">Home</span></h6></a></li>
+									<li class="list-inline-item"><a href="" class=""><h6><span class="alternate">About</span></h6></a></li>
+									<li class="list-inline-item"><a href="" class=""><h6><span class="alternate">News</span></h6></a></li>
+									<li class="list-inline-item"><a href="" class=""><h6><span class="alternate">Podcast</span></h6></a></li>
+									<li class="list-inline-item"><a href="" class=""><h6><span class="alternate">Store</span></h6></a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer> {% endcomment %}
+	<!-- Subfooter -->
+	{% comment %} <footer class="subfooter">
+		<div class="container">
+			<div class="copyright-text">
+				<p>© 2020 Brobro.com. All Rights Reserved.</p>
+			</div>
+			<div class="row">
+				<div class="col-md-6 align-self-center">
+					<div class="copyright-text">
+					<p>Site developed by <span><a href="http://www.benwillwalk.com">BenWillWalk Dev</a></span></p>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<a href="/store" class="to-top"><i class="fa fa-angle-up"></i></a>
+				</div>
+			</div>
+		</div>
+	</footer> {% endcomment %}
+
+	<!-- End Subfooter -->
+	<!-- End Footer -->
+
+
+	<!-- JAVASCRIPTS -->
+	<!-- jQuey -->
+	<script src="{% static 'plugins/jquery/jquery.js' %}"></script>
+	<!-- Popper js -->
+	<script src="{% static 'plugins/popper/popper.min.js' %}"></script>
+	<!-- Bootstrap 4 -->
+	<script src="{% static 'plugins/bootstrap/js/bootstrap.min.js' %}"></script>
+	<!-- Smooth Scroll -->
+	<script src="{% static 'plugins/smoothscroll/SmoothScroll.min.js' %}"></script>  
+	<!-- Isotope -->
+	<script src="{% static 'plugins/isotope/mixitup.min.js' %}"></script>  
+	<!-- Magnific Popup -->
+	<script src="{% static 'plugins/magnific-popup/jquery.magnific-popup.min.js' %}"></script>
+	<!-- Slick Carousel -->
+	<script src="{% static 'plugins/slick/slick.min.js' %}"></script>  
+	<!-- SyoTimer -->
+	<script src="{% static 'plugins/syotimer/jquery.syotimer.min.js' %}"></script>
+	<!-- Google Mapl -->
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu5nZKbeK-WHQ70oqOWo-_4VmwOwKP9YQ"></script>
+	<script type="text/javascript" src="{% static 'plugins/google-map/gmap.js' %}"></script>
+	<!-- Custom Script -->
+	<script src="{% static 'js/custom.js' %}"></script>
+</body>
+
+</html>
